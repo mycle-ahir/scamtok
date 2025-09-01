@@ -1,6 +1,7 @@
 
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { HelmetProvider } from 'react-helmet-async'
 import { Toaster } from 'react-hot-toast'
 import Layout from './components/Layout'
 import HomePage from './pages/HomePage'
@@ -21,30 +22,32 @@ import CareersPage from './pages/CareersPage'
 
 function App() {
   return (
-    <Router>
-      <div className="min-h-screen bg-gray-50">
-        <Layout>
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/forum" element={<ForumPage />} />
-            <Route path="/forum/:category" element={<ForumCategory />} />
-            <Route path="/forum/:category/:threadId" element={<ForumThread />} />
-            <Route path="/company" element={<CompanyPage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-            <Route path="/privacy" element={<PrivacyPage />} />
-            <Route path="/disclaimer" element={<DisclaimerPage />} />
-            <Route path="/terms" element={<TermsPage />} />
-            <Route path="/update-report" element={<UpdateReportPage />} />
-            <Route path="/resources" element={<ResourcesPage />} />
-            <Route path="/notice-removal" element={<NoticeRemovalPage />} />
-            <Route path="/legal" element={<LegalPage />} />
-            <Route path="/careers" element={<CareersPage />} />
-          </Routes>
-        </Layout>
-        <Toaster position="top-right" />
-      </div>
-    </Router>
+    <HelmetProvider>
+      <Router>
+        <div className="min-h-screen bg-gray-50">
+          <Layout>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/forum" element={<ForumPage />} />
+              <Route path="/forum/:category" element={<ForumCategory />} />
+              <Route path="/forum/:category/:threadId" element={<ForumThread />} />
+              <Route path="/company" element={<CompanyPage />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/contact" element={<ContactPage />} />
+              <Route path="/privacy" element={<PrivacyPage />} />
+              <Route path="/disclaimer" element={<DisclaimerPage />} />
+              <Route path="/terms" element={<TermsPage />} />
+              <Route path="/update-report" element={<UpdateReportPage />} />
+              <Route path="/resources" element={<ResourcesPage />} />
+              <Route path="/notice-removal" element={<NoticeRemovalPage />} />
+              <Route path="/legal" element={<LegalPage />} />
+              <Route path="/careers" element={<CareersPage />} />
+            </Routes>
+          </Layout>
+          <Toaster position="top-right" />
+        </div>
+      </Router>
+    </HelmetProvider>
   )
 }
 
